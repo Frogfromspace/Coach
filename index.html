@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>바른짐코치 MVP</title>
+    <meta name="theme-color" content="#176b57" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Personal gym coach</p>
+          <h1>바른짐코치</h1>
+        </div>
+        <button class="ghost-button" id="exportCsvButton" type="button">CSV 내보내기</button>
+      </section>
+
+      <section class="screen active" id="homeScreen" aria-label="홈">
+        <div class="summary-grid">
+          <article class="metric-card">
+            <span>오늘 달성률</span>
+            <strong id="todayRate">0%</strong>
+          </article>
+          <article class="metric-card">
+            <span>이번 주 운동</span>
+            <strong id="weekCount">0회</strong>
+          </article>
+          <article class="metric-card">
+            <span>총 세트</span>
+            <strong id="totalSets">0</strong>
+          </article>
+          <article class="metric-card">
+            <span>다음 추천</span>
+            <strong id="nextWeight">-</strong>
+          </article>
+        </div>
+
+        <div class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>오늘 추천 루틴</h2>
+              <p class="template-label" id="routineTemplateLabel">기본 루틴</p>
+            </div>
+            <button class="text-button" id="refreshRoutineButton" type="button">다시 추천</button>
+          </div>
+          <div class="routine-list" id="routineList"></div>
+        </div>
+
+        <div class="panel">
+          <h2>안전 안내</h2>
+          <p class="notice">
+            본 앱은 의료 진단이나 치료를 대체하지 않습니다. 날카로운 통증, 어지러움,
+            호흡곤란, 관절 불안정감이 있으면 즉시 운동을 중단하고 전문가와 상담하세요.
+            어린이는 보호자 또는 지도자 확인 후 운동해야 합니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="screen" id="workoutScreen" aria-label="운동하기">
+        <div class="panel">
+          <div class="panel-heading">
+            <h2>운동 기구</h2>
+            <select id="equipmentFilter" aria-label="기구 필터">
+              <option value="all">전체</option>
+              <option value="하체">하체</option>
+              <option value="상체">상체</option>
+              <option value="코어">코어</option>
+              <option value="전신">전신</option>
+            </select>
+          </div>
+          <div class="equipment-grid" id="equipmentGrid"></div>
+        </div>
+
+        <div class="panel workout-detail" id="workoutDetail">
+          <h2>기구를 선택하세요</h2>
+          <p class="muted">기구별 설명, 구간별 동작 안내, 추천 세트와 중량이 표시됩니다.</p>
+        </div>
+
+        <div class="panel workout-setup-panel" id="workoutSetupPanel" hidden>
+          <div class="panel-heading">
+            <div>
+              <h2 id="setupEquipmentName">운동 설정</h2>
+              <p class="template-label" id="setupEquipmentHint">중량, 세트, 반복을 조정한 뒤 시작하세요.</p>
+            </div>
+            <button class="text-button" id="closeSetupButton" type="button">닫기</button>
+          </div>
+          <form class="form-grid" id="workoutSetupForm">
+            <label>중량 kg<input id="setupWeight" type="number" min="0" step="0.5" /></label>
+            <label>목표 세트<input id="setupSets" type="number" min="1" max="10" /></label>
+            <label>목표 반복<input id="setupReps" type="number" min="1" max="50" /></label>
+            <label>휴식 초<input id="setupRest" type="number" min="10" max="180" step="5" value="30" /></label>
+            <button class="primary-button span-2" type="submit">설정대로 운동 시작</button>
+          </form>
+        </div>
+
+        <div class="panel timer-panel" id="timerPanel" hidden>
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Workout coaching</p>
+              <h2 id="timerEquipmentName">운동 진행</h2>
+            </div>
+            <button class="text-button" id="closeTimerButton" type="button">닫기</button>
+          </div>
+          <div class="timer-overview">
+            <span id="timerWeightLabel">추천 무게 -</span>
+            <span id="timerTargetLabel">목표 -</span>
+          </div>
+          <div class="timer-status">
+            <span id="timerSetLabel">1세트 / 3세트</span>
+            <strong id="timerPhaseLabel">준비</strong>
+            <div class="timer-count" id="timerCount">3</div>
+            <p id="timerGuideText">자세를 준비하세요.</p>
+            <div class="progress-track timer-progress">
+              <div class="progress-fill" id="timerProgressFill"></div>
+            </div>
+            <span id="timerRepLabel">현재 반복: 0 / 12</span>
+          </div>
+          <div class="timer-actions">
+            <button class="primary-button" id="pauseTimerButton" type="button">일시정지</button>
+            <button class="ghost-button" id="skipPhaseButton" type="button">다음 단계</button>
+            <button class="ghost-button" id="finishWorkoutButton" type="button">완료하고 기록</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="recordsScreen" aria-label="기록">
+        <div class="panel">
+          <h2>운동 기록 입력</h2>
+          <form class="form-grid" id="logForm">
+            <label>기구<select id="logEquipment"></select></label>
+            <label>세트<input id="logSet" type="number" min="1" value="1" /></label>
+            <label>중량 kg<input id="logWeight" type="number" min="0" step="0.5" value="10" /></label>
+            <label>반복<input id="logReps" type="number" min="0" value="12" /></label>
+            <label>목표 반복<input id="logTargetReps" type="number" min="1" value="12" /></label>
+            <label>체감 난이도
+              <select id="logDifficulty">
+                <option>쉬움</option>
+                <option selected>보통</option>
+                <option>어려움</option>
+              </select>
+            </label>
+            <label class="check-row"><input id="logPain" type="checkbox" /> 통증 있음</label>
+            <label class="span-2">메모<input id="logMemo" type="text" placeholder="예: 무릎 통증 없음" /></label>
+            <button class="primary-button span-2" type="submit">기록 저장</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2>최근 운동 기록</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>날짜</th>
+                  <th>기구</th>
+                  <th>세트</th>
+                  <th>중량</th>
+                  <th>반복</th>
+                  <th>다음</th>
+                </tr>
+              </thead>
+              <tbody id="logTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="statsScreen" aria-label="통계">
+        <div class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>월간 신체 변화</h2>
+              <p class="template-label">내 정보에서 몸무게와 체지방률을 기록하면 자동으로 반영됩니다.</p>
+            </div>
+            <div class="chart-controls">
+              <input id="monthPicker" type="month" aria-label="조회 월" />
+              <div class="segmented-control" aria-label="차트 지표">
+                <button class="segment-button active" data-metric="weight" type="button">체중</button>
+                <button class="segment-button" data-metric="bodyFat" type="button">체지방</button>
+              </div>
+            </div>
+          </div>
+          <div class="monthly-summary" id="monthlySummary"></div>
+          <div class="line-chart" id="monthlyBodyChart"></div>
+        </div>
+        <div class="panel">
+          <h2>주간 통계</h2>
+          <div class="bar-chart" id="weekChart"></div>
+        </div>
+        <div class="panel">
+          <h2>부위별 비율</h2>
+          <div class="muscle-chart" id="muscleChart"></div>
+        </div>
+      </section>
+
+      <section class="screen" id="profileScreen" aria-label="내 정보">
+        <div class="panel">
+          <h2>프로필</h2>
+          <form class="form-grid" id="profileForm">
+            <label>이름 또는 닉네임<input id="name" type="text" required /></label>
+            <label>사용자 유형
+              <select id="userType">
+                <option>초등학생</option>
+                <option>중학생</option>
+                <option>성인 여성</option>
+                <option>성인 남성</option>
+                <option>40대 이상 여성</option>
+                <option>40대 이상 남성</option>
+              </select>
+            </label>
+            <label>성별
+              <select id="gender">
+                <option>여성</option>
+                <option>남성</option>
+                <option>선택 안 함</option>
+              </select>
+            </label>
+            <label>나이<input id="age" type="number" min="6" max="100" value="40" /></label>
+            <label>키 cm<input id="height" type="number" min="80" max="230" value="165" /></label>
+            <label>현재 몸무게 kg<input id="weight" type="number" min="20" max="250" step="0.1" value="65" /></label>
+            <label>운동 경험
+              <select id="experience">
+                <option>처음</option>
+                <option>3개월 미만</option>
+                <option>6개월 미만</option>
+                <option>1년 이상</option>
+              </select>
+            </label>
+            <label>운동 목적
+              <select id="goal">
+                <option>체중감량</option>
+                <option>근력증가</option>
+                <option>자세교정</option>
+                <option>통증완화</option>
+                <option>체력향상</option>
+              </select>
+            </label>
+            <label>주당 가능 횟수<input id="weeklyDays" type="number" min="1" max="7" value="3" /></label>
+            <label>1회 가능 시간
+              <select id="sessionMinutes">
+                <option>20</option>
+                <option selected>30</option>
+                <option>45</option>
+                <option>60</option>
+              </select>
+            </label>
+            <fieldset class="span-2">
+              <legend>신체 상태</legend>
+              <label class="check-row"><input class="condition" value="목 불편" type="checkbox" /> 목 불편</label>
+              <label class="check-row"><input class="condition" value="어깨 불편" type="checkbox" /> 어깨 불편</label>
+              <label class="check-row"><input class="condition" value="허리 불편" type="checkbox" /> 허리 불편</label>
+              <label class="check-row"><input class="condition" value="무릎 불편" type="checkbox" /> 무릎 불편</label>
+              <label class="check-row"><input class="condition" value="골반 비대칭" type="checkbox" /> 골반 비대칭</label>
+              <label class="check-row"><input class="condition" value="오십견" type="checkbox" /> 오십견</label>
+              <label class="check-row"><input class="condition" value="체력 부족" type="checkbox" /> 체력 부족</label>
+            </fieldset>
+            <button class="primary-button span-2" type="submit">프로필 저장</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2>몸무게 기록</h2>
+          <form class="inline-form" id="bodyForm">
+            <input id="bodyWeight" type="number" min="20" max="250" step="0.1" placeholder="몸무게 kg" />
+            <input id="bodyFat" type="number" min="1" max="70" step="0.1" placeholder="체지방률 %" />
+            <button class="primary-button" type="submit">추가</button>
+          </form>
+          <div class="weight-trend" id="weightTrend"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Google Sheets 연동</h2>
+          <form class="sync-form" id="sheetsConfigForm">
+            <label class="span-2">Apps Script Web App URL
+              <input id="appsScriptUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec" />
+            </label>
+            <button class="ghost-button" id="testSheetsButton" type="button">연결 테스트</button>
+            <button class="primary-button" id="syncSheetsButton" type="button">전체 동기화</button>
+          </form>
+          <p class="sync-status" id="syncStatus">Web App URL을 입력하면 Google Sheets로 저장할 수 있습니다.</p>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="하단 메뉴">
+      <button class="nav-button active" data-screen="homeScreen" type="button">홈</button>
+      <button class="nav-button" data-screen="workoutScreen" type="button">운동하기</button>
+      <button class="nav-button" data-screen="recordsScreen" type="button">기록</button>
+      <button class="nav-button" data-screen="statsScreen" type="button">통계</button>
+      <button class="nav-button" data-screen="profileScreen" type="button">내 정보</button>
+    </nav>
+
+    <script>
+      document.querySelectorAll(".nav-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const screenId = button.dataset.screen;
+          document.querySelectorAll(".screen").forEach((screen) => {
+            screen.classList.toggle("active", screen.id === screenId);
+          });
+          document.querySelectorAll(".nav-button").forEach((navButton) => {
+            navButton.classList.toggle("active", navButton === button);
+          });
+        });
+      });
+    </script>
+    <script src="./app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator && location.protocol !== "file:") {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+      }
+    </script>
+  </body>
+</html>

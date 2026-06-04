@@ -1,0 +1,19 @@
+{
+  "name": "바른짐코치",
+  "short_name": "바른짐코치",
+  "description": "초보자를 위한 운동 루틴, 운동 진행, 기록 관리 앱",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f3",
+  "theme_color": "#176b57",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
