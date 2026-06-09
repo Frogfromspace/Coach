@@ -144,6 +144,36 @@ h2 {
   gap: 12px;
 }
 
+.subtab-row {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0 16px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(24, 33, 30, 0.06);
+}
+
+.subtab-button {
+  flex: 1;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.subtab-button.active {
+  background: var(--card);
+  color: var(--text);
+  box-shadow: 0 8px 18px rgba(24, 33, 30, 0.08);
+}
+
+.youtube-panel {
+  background: linear-gradient(135deg, rgba(255, 245, 245, 0.96), rgba(255, 255, 255, 0.92));
+}
+
 .routine-item {
   display: grid;
   grid-template-columns: 44px 1fr auto;
@@ -199,6 +229,43 @@ h2 {
   height: 130px;
   object-fit: cover;
   display: block;
+}
+
+.video-panel {
+  margin: 14px 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.video-panel .panel-heading {
+  margin-bottom: 10px;
+}
+
+.video-panel h2 {
+  font-size: 18px;
+}
+
+.equipment-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 8px;
+  background: #111;
+}
+
+.video-link {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--accent);
+  font-weight: 800;
+  text-decoration: none;
 }
 
 .equipment-card div {

@@ -9,6 +9,42 @@ const tempoPresets = {
   rehab: { setup: 5, concentric: 2, hold: 2, eccentric: 4 },
 };
 
+const equipmentVideos = {
+  lowRow: "https://b01-kr-naver-vod.pstatic.net/qrcode/a/read/v2/VOD_ALPHA/qrcode/0EF2D8E4D52FE1B437A7909DE1F3D56A1DE7/pd/1748250427491/ced839aa-3a10-11f0-9514-b4432650023e.mp4?_lsu_sa_=680585feb1b167c662dc257460e5c1b93e873758c70e4f5734e7b6c877d83d952727eacf6685f30be0ea3d32133b7b15ce1ca82397a3f1a634afa1ae58605582ae9a8041a5c5dd5aa4eac5516a87424b&in_out_flag=1",
+  rotaryPulldown: "https://b01-kr-naver-vod.pstatic.net/qrcode/a/read/v2/VOD_ALPHA/qrcode/865C37D43A4E767DB72C997E28290B6991DA/pd/1748241210206/591729bf-39fb-11f0-b769-a0369ffdb6c4.mp4?_lsu_sa_=66c5befa310964f62dd4f54b6bf5b5b01eb732782e0daf263a9766c507373d055e24ea7269d5540290aa31629537eba373eb5850a0961c3a0f5e2563ec8c40ce&in_out_flag=1",
+  highRow: "https://b01-kr-naver-vod.pstatic.net/qrcode/a/read/v2/VOD_ALPHA/qrcode/F5F22E034CBB1CC6EFFA909DE1F3D56A1DE7/pd/1747903360740/baea8759-36e8-11f0-8bba-e4434b27eff0.mp4?_lsu_sa_=66353dfd41ff6ef623d175fe6805b4bade363a38340e8f1332f7bbc1d71437158d2ebac26c658d0e70393df2f03d0be2cb4534a58d06e988cf9a07d04d62fb4c8ec8b32cfb6b5a93488bc4b9db957280&in_out_flag=1",
+  hipAdduction: "https://b01-kr-naver-vod.pstatic.net/qrcode/a/read/v2/VOD_ALPHA/qrcode/EBC18598E21BCD37FAE13E18CECAAE499F65/pd/1745386772696/5800ad9c-2005-11f0-a84c-a0369ffac3ec.mp4?_lsu_sa_=665543f7513762c68fd605c966b5d1baaec13518de0eaf393ab7e6c1b78838b51a2c1a8762b57207c09e3802a130db3ae2a45453f095d7d7c3be432bf7592f458d5f9c3b520120b648574025889e7803&in_out_flag=1",
+  hangingLegRaise: "https://b01-kr-naver-vod.pstatic.net/qrcode/a/read/v2/VOD_ALPHA/qrcode/7AFC9CFA3383B7A99CEA56C6A3282113CD28/pd/1746603786963/ebbaadb3-2b16-11f0-a227-a0369ffac0b0.mp4?_lsu_sa_=62c539f4116b6d36d0d7255a65c521b77ec132c82e032f7a3f0798c427f138d537260a8766b58c0fd0ae34e2003c5be4064f9beeb905ad95b4976e913cc7e4a8d9bea6e53eae31c9b1519b2985f33766&in_out_flag=1",
+  armPulldown: "https://b01-kr-naver-vod.pstatic.net/qrcode/a/read/v2/VOD_ALPHA/qrcode/E0D8E4A721E44E58839AD96732A009E527A9/pd/1747894909608/0d50fa4b-36d5-11f0-b1d6-80615f0bce44.mp4?_lsu_sa_=6c257cffc1cc6ba693dd35856a7516bcee4b37f81a0a4fd93867f6c8b7093ad5c82eea176cd59e05703b3a322c35ab33c74dd887ba2c75eaa2d78c1e6db28ac49ab6ed1500740d62deb6e3e90608ca02&in_out_flag=1",
+  shoulderPress: "https://b01-kr-naver-vod.pstatic.net/qrcode/a/read/v2/VOD_ALPHA/qrcode/82A8CA9051B2D044522B5BDC3931EF9C70DA/pd/1747897929853/165f1379-36dc-11f0-9987-a0369ffdb3c4.mp4?_lsu_sa_=60b5cdf6212667b614d015bc67f5efb81ef33758270faf05362766cac7b735c50a24fa796b25ad0ff0b832b27334abed2ee464816b47f1a25e2d45cbfd96eb1f64cb321fa7a1e6275ff535966053b8e0&in_out_flag=1",
+  chestPress: "https://b01-kr-naver-vod.pstatic.net/qrcode/a/read/v2/VOD_ALPHA/qrcode/BCFE0C5D1D0742E6EC73F0B98D8C58595BC5/pd/1746607239396/f67ebea8-2b1e-11f0-b769-a0369ffdb6c4.mp4?_lsu_sa_=6a354cfe3195607678d295bf661548b98e3f3d18c5009f0f306713ce277c3f45272a2aa463856407a0cc32e2583b7b6d5ead18ea0f91e64390f77f74de9274f5e4589bd91f8620c3059f44218d531a47&in_out_flag=1",
+  seatedLegPress: "https://b01-kr-naver-vod.pstatic.net/qrcode/a/read/v2/VOD_ALPHA/qrcode/5E6236D7E060EB70E9439A20388C33208C2C/pd/1747123489411/f4c4179d-2fd0-11f0-968d-a0369ffda02c.mp4?_lsu_sa_=689505f4610b64965edd456d64f579bdeec439d8b2091f2436978eca77453e35f72c3a786325c90d602e36f23739db7dedf473b42dbeb2b502ce5f64174a09f72bc072cfee3dfc8775099d20591748b9&in_out_flag=1",
+  legCurl: "https://b01-kr-naver-vod.pstatic.net/qrcode/a/read/v2/VOD_ALPHA/qrcode/7A48CEBE054876A1730E4296DFDAC51FF8FA/pd/1747186688928/1a4ef416-3064-11f0-8bba-e4434b27eff0.mp4?_lsu_sa_=6e95c1f5d12769d66fdf15e06055fbb87e7e3298ca019f5c3277a9ce676030d5cb243a446765e10270b832d24639ebd7dc2996693b1796b13add01b21f6f03efcee28e01b9a4c915b6e69dd45e174010&in_out_flag=1",
+  latPulldown: "https://b01-kr-naver-vod.pstatic.net/qrcode/a/read/v2/VOD_ALPHA/qrcode/7B81491AD484C9CDE7A57CBB3A4FD475CA91/pd/1747211392451/9d76e96e-309d-11f0-a648-3c15fb5ce5e7.mp4?_lsu_sa_=64b557f0c1c16136a5d3259669e57bb97eb432d88b0d5f06366767ce67893305e32c2abf6705d60b10d63df2713a9bd7bd2b666c7a58857c20c38bc99a67e9077924341e65dccfac712099e38008a07b&in_out_flag=1",
+};
+
+function youtubeSearchUrl(query) {
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+}
+
+const setEncouragements = [
+  "좋습니다. 한 세트를 정확하게 끝냈습니다.",
+  "잘했습니다. 자세를 유지한 점이 좋습니다.",
+  "호흡을 고르고 다음 세트도 같은 템포로 갑니다.",
+  "훌륭합니다. 무게보다 정확한 동작이 우선입니다.",
+  "좋은 흐름입니다. 다음 세트는 천천히 통제하세요.",
+  "집중력이 좋습니다. 어깨와 허리에 힘이 과하지 않은지 확인하세요.",
+  "잘 따라왔습니다. 물 한 모금 마시고 다음 세트를 준비하세요.",
+];
+
+const koreanRepCounts = [
+  "", "하나", "둘", "셋", "넷", "다섯", "여섯", "일곱", "여덟", "아홉", "열",
+  "열하나", "열둘", "열셋", "열넷", "열다섯", "열여섯", "열일곱", "열여덟", "열아홉", "스물",
+  "스물하나", "스물둘", "스물셋", "스물넷", "스물다섯", "스물여섯", "스물일곱", "스물여덟", "스물아홉", "서른",
+  "서른하나", "서른둘", "서른셋", "서른넷", "서른다섯", "서른여섯", "서른일곱", "서른여덟", "서른아홉", "마흔",
+  "마흔하나", "마흔둘", "마흔셋", "마흔넷", "마흔다섯", "마흔여섯", "마흔일곱", "마흔여덟", "마흔아홉", "쉰",
+];
+
 const equipment = [
   {
     id: "eq001",
@@ -19,6 +55,7 @@ const equipment = [
     difficulty: "쉬움",
     description: "앉아서 다리를 벌리거나 모아 골반 안정성을 돕는 기구입니다.",
     image: "https://images.unsplash.com/photo-1571019613914-85f342c6a11e?auto=format&fit=crop&w=800&q=80",
+    videoUrl: equipmentVideos.hipAdduction,
     caution: "허리를 과하게 젖히지 말고 통증 없는 범위에서 천천히 움직이세요.",
     defaultSets: 3,
     defaultReps: 15,
@@ -47,6 +84,7 @@ const equipment = [
     difficulty: "보통",
     description: "앉아서 발판을 밀어 하체 근력을 키우는 대표 기구입니다.",
     image: "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80",
+    videoUrl: equipmentVideos.seatedLegPress,
     caution: "무릎을 완전히 잠그지 말고 발끝과 무릎 방향을 맞추세요.",
     defaultSets: 3,
     defaultReps: 12,
@@ -75,6 +113,7 @@ const equipment = [
     difficulty: "보통",
     description: "앉아서 손잡이를 앞으로 밀어 가슴과 팔을 단련합니다.",
     image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80",
+    videoUrl: equipmentVideos.chestPress,
     caution: "어깨 통증이 있으면 범위를 줄이고 무겁게 시작하지 마세요.",
     defaultSets: 3,
     defaultReps: 12,
@@ -103,6 +142,7 @@ const equipment = [
     difficulty: "보통",
     description: "위의 바를 아래로 당겨 등 근육을 활성화합니다.",
     image: "https://images.unsplash.com/photo-1599058917765-a780eda07a3e?auto=format&fit=crop&w=800&q=80",
+    videoUrl: equipmentVideos.latPulldown,
     caution: "목 뒤로 당기지 말고 쇄골 앞쪽으로 당기세요.",
     defaultSets: 3,
     defaultReps: 12,
@@ -178,6 +218,454 @@ const equipment = [
       ["내리기", "중량을 통제하며 천천히 내리세요.", 3],
     ],
   },
+  {
+    id: "eq007",
+    ko: "로우로우",
+    en: "Low Row",
+    category: "상체",
+    target: "등, 후면 어깨",
+    difficulty: "보통",
+    description: "앉아서 손잡이를 몸쪽으로 당겨 등 중앙부를 강화하는 기구입니다.",
+    image: "https://images.unsplash.com/photo-1605296867424-35fc25c9212a?auto=format&fit=crop&w=800&q=80",
+    videoUrl: equipmentVideos.lowRow,
+    caution: "허리를 둥글게 말지 말고 팔보다 등으로 당기는 느낌을 유지하세요.",
+    defaultSets: 3,
+    defaultReps: 12,
+    startWeight: 15,
+    unit: 5,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: {
+      setup: ["가슴을 세우세요.", "어깨를 낮추세요.", "복부에 힘을 주세요."],
+      concentric: "손잡이를 몸쪽으로 당기세요.",
+      hold: "등을 조이며 유지하세요.",
+      eccentric: "팔을 천천히 뻗어 돌아가세요.",
+    },
+    guide: [
+      ["준비", "가슴을 세우고 손잡이를 잡으세요.", 3],
+      ["당기기", "팔꿈치를 뒤로 보내며 당기세요.", 2],
+      ["유지", "등 중앙에 힘을 느끼세요.", 1],
+      ["복귀", "천천히 팔을 뻗으세요.", 3],
+    ],
+  },
+  {
+    id: "eq008",
+    ko: "로터리 풀다운",
+    en: "Rotary Pulldown",
+    category: "상체",
+    target: "광배근, 이두",
+    difficulty: "보통",
+    description: "회전 궤도 손잡이를 아래로 당겨 등 근육을 자극하는 기구입니다.",
+    image: "https://images.unsplash.com/photo-1599058917765-a780eda07a3e?auto=format&fit=crop&w=800&q=80",
+    videoUrl: equipmentVideos.rotaryPulldown,
+    caution: "몸을 과하게 젖히지 말고 쇄골 앞쪽으로 당기세요.",
+    defaultSets: 3,
+    defaultReps: 12,
+    startWeight: 15,
+    unit: 5,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 2 },
+    coaching: {
+      setup: ["허벅지 패드를 고정하세요.", "가슴을 세우세요.", "어깨를 낮추세요."],
+      concentric: "손잡이를 아래로 당기세요.",
+      hold: "등에 힘을 유지하세요.",
+      eccentric: "천천히 위로 돌아가세요.",
+    },
+    guide: [
+      ["준비", "패드를 고정하고 가슴을 세우세요.", 3],
+      ["당기기", "손잡이를 아래로 당기세요.", 2],
+      ["유지", "등을 조이며 멈추세요.", 1],
+      ["복귀", "천천히 올리세요.", 2],
+    ],
+  },
+  {
+    id: "eq009",
+    ko: "하이로우",
+    en: "High Row",
+    category: "상체",
+    target: "등 상부, 광배근",
+    difficulty: "보통",
+    description: "높은 위치의 손잡이를 몸쪽으로 당겨 등 상부와 광배근을 강화합니다.",
+    image: "https://images.unsplash.com/photo-1598971639058-fab3c3109a00?auto=format&fit=crop&w=800&q=80",
+    videoUrl: equipmentVideos.highRow,
+    caution: "어깨가 으쓱 올라가지 않게 낮춘 상태로 당기세요.",
+    defaultSets: 3,
+    defaultReps: 12,
+    startWeight: 15,
+    unit: 5,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: {
+      setup: ["가슴을 세우세요.", "어깨를 낮추세요.", "손잡이를 안정적으로 잡으세요."],
+      concentric: "팔꿈치를 아래뒤로 당기세요.",
+      hold: "등에 힘을 유지하세요.",
+      eccentric: "천천히 원위치로 돌아가세요.",
+    },
+    guide: [
+      ["준비", "가슴을 세우고 손잡이를 잡으세요.", 3],
+      ["당기기", "팔꿈치를 아래뒤로 당기세요.", 2],
+      ["유지", "등을 조이세요.", 1],
+      ["복귀", "천천히 돌아가세요.", 3],
+    ],
+  },
+  {
+    id: "eq010",
+    ko: "행잉 레그 레이즈",
+    en: "Hanging Leg Raise",
+    category: "코어",
+    target: "복부, 고관절 굴곡근",
+    difficulty: "어려움",
+    description: "몸을 지지한 상태에서 다리를 들어 올려 복부를 강화하는 운동입니다.",
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
+    videoUrl: equipmentVideos.hangingLegRaise,
+    caution: "허리가 과하게 꺾이거나 반동이 커지면 반복 수를 줄이세요.",
+    defaultSets: 2,
+    defaultReps: 10,
+    startWeight: 0,
+    unit: 1,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: {
+      setup: ["어깨를 낮추고 몸을 안정시키세요.", "복부에 힘을 주세요.", "반동을 줄이세요."],
+      concentric: "무릎 또는 다리를 들어 올리세요.",
+      hold: "복부에 힘을 유지하세요.",
+      eccentric: "천천히 다리를 내리세요.",
+    },
+    guide: [
+      ["준비", "몸을 안정적으로 지지하세요.", 3],
+      ["올리기", "복부 힘으로 다리를 올리세요.", 2],
+      ["유지", "상단에서 멈추세요.", 1],
+      ["내리기", "천천히 내리세요.", 3],
+    ],
+  },
+  {
+    id: "eq011",
+    ko: "암 풀다운",
+    en: "Arm Pulldown",
+    category: "상체",
+    target: "광배근, 전거근",
+    difficulty: "보통",
+    description: "팔을 거의 편 상태로 바를 아래로 눌러 등과 몸통 측면을 자극합니다.",
+    image: "https://images.unsplash.com/photo-1599058917765-a780eda07a3e?auto=format&fit=crop&w=800&q=80",
+    videoUrl: equipmentVideos.armPulldown,
+    caution: "허리를 꺾지 말고 어깨가 올라가지 않게 유지하세요.",
+    defaultSets: 3,
+    defaultReps: 12,
+    startWeight: 10,
+    unit: 5,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: {
+      setup: ["가슴을 세우세요.", "팔을 길게 뻗으세요.", "복부에 힘을 주세요."],
+      concentric: "바를 허벅지 쪽으로 누르세요.",
+      hold: "등 옆쪽에 힘을 유지하세요.",
+      eccentric: "천천히 위로 돌아가세요.",
+    },
+    guide: [
+      ["준비", "팔을 길게 뻗고 가슴을 세우세요.", 3],
+      ["누르기", "바를 아래로 누르세요.", 2],
+      ["유지", "광배근에 힘을 유지하세요.", 1],
+      ["복귀", "천천히 올리세요.", 3],
+    ],
+  },
+  {
+    id: "eq012",
+    ko: "숄더 프레스",
+    en: "Shoulder Press",
+    category: "상체",
+    target: "어깨, 삼두",
+    difficulty: "보통",
+    description: "앉아서 손잡이를 위로 밀어 어깨 근력을 강화하는 기구입니다.",
+    image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80",
+    videoUrl: equipmentVideos.shoulderPress,
+    caution: "어깨 통증이 있으면 가동 범위를 줄이고 가볍게 시작하세요.",
+    defaultSets: 2,
+    defaultReps: 10,
+    startWeight: 10,
+    unit: 5,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: {
+      setup: ["허리를 등받이에 붙이세요.", "어깨를 낮추세요.", "손목을 곧게 세우세요."],
+      concentric: "손잡이를 위로 밀어주세요.",
+      hold: "어깨에 힘을 유지하세요.",
+      eccentric: "천천히 내려오세요.",
+    },
+    guide: [
+      ["준비", "등받이에 기대고 손잡이를 잡으세요.", 3],
+      ["밀기", "손잡이를 위로 미세요.", 2],
+      ["유지", "상단에서 짧게 멈추세요.", 1],
+      ["내리기", "천천히 내리세요.", 3],
+    ],
+  },
+  {
+    id: "eq013",
+    ko: "레그컬",
+    en: "Leg Curl",
+    category: "하체",
+    target: "햄스트링",
+    difficulty: "보통",
+    description: "무릎을 굽혀 허벅지 뒤쪽 햄스트링을 강화하는 기구입니다.",
+    image: "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80",
+    videoUrl: equipmentVideos.legCurl,
+    caution: "골반이 들리지 않게 고정하고 무릎에 통증이 있으면 중량을 줄이세요.",
+    defaultSets: 3,
+    defaultReps: 12,
+    startWeight: 10,
+    unit: 5,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: {
+      setup: ["패드를 발목 뒤에 맞추세요.", "골반을 고정하세요.", "손잡이를 잡으세요."],
+      concentric: "무릎을 굽혀 패드를 당기세요.",
+      hold: "허벅지 뒤쪽에 힘을 유지하세요.",
+      eccentric: "천천히 다리를 펴세요.",
+    },
+    guide: [
+      ["준비", "패드 위치를 맞추고 몸을 고정하세요.", 3],
+      ["굽히기", "무릎을 굽혀 당기세요.", 2],
+      ["유지", "햄스트링에 힘을 유지하세요.", 1],
+      ["펴기", "천천히 다리를 펴세요.", 3],
+    ],
+  },,
+  {
+    id: "db001",
+    group: "dumbbell",
+    ko: "??(??? ??? ???)",
+    en: "Dumbbell Side Lateral Raise",
+    category: "??",
+    target: "?? ??",
+    difficulty: "??",
+    description: "??? ??? ???? ?? ?? ?? ??? ?????. ??? ??? ??? ???? ??? ?? ?? ????? ???.",
+    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ??? ??? ??? ?? ??"),
+    caution: "?? ??? ??? ????? ??? ??? ?? ???.",
+    defaultSets: 2,
+    defaultReps: 12,
+    startWeight: 2,
+    unit: 1,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: {
+      setup: ["??? ?? ????.", "??? ????.", "??? ?? ???."],
+      concentric: "???? ??? ?? ????.",
+      hold: "?? ???? ?? ????.",
+      eccentric: "??? ??? ????.",
+    },
+    guide: [["??", "??? ???? ???? ?????.", 3], ["???", "???? ??? ?? ????.", 2], ["??", "?? ???? ????.", 1], ["???", "?? ?? ??? ????.", 3]],
+  },
+  {
+    id: "db002",
+    group: "dumbbell",
+    ko: "??(?? ???)",
+    en: "Dumbbell Shoulder Press",
+    category: "??",
+    target: "??, ??",
+    difficulty: "??",
+    description: "??? ?? ??? ?? ?? ?? ?? ??? ??? ?????. ??? ??? ??? ??? ?? ?????.",
+    image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ?? ??? ?? ??"),
+    caution: "??? ? ??? ???? ??? ????.",
+    defaultSets: 2,
+    defaultReps: 10,
+    startWeight: 3,
+    unit: 1,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: { setup: ["???? ????.", "??? ?? ????.", "??? ????."], concentric: "??? ?? ?? ????.", hold: "??? ???? ????.", eccentric: "???? ??? ????." },
+    guide: [["??", "??? ?? ?? ???.", 3], ["??", "?? ?? ????.", 2], ["??", "???? ??????.", 1], ["???", "??? ?? ??? ????.", 3]],
+  },
+  {
+    id: "db003",
+    group: "dumbbell",
+    ko: "??(??? ??)",
+    en: "Dumbbell External Rotation",
+    category: "??",
+    target: "????",
+    difficulty: "??",
+    description: "??? ??? ?? ??? ??? ?? ?? ???? ????. ???? ?? ?? ??? ?? ??? ?????.",
+    image: "https://images.unsplash.com/photo-1571019613914-85f342c6a11e?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ??? ?? ???? ?? ??"),
+    caution: "??? ??? ???? ??? ???? ?????.",
+    defaultSets: 2,
+    defaultReps: 12,
+    startWeight: 1,
+    unit: 0.5,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: { setup: ["???? ? ?? ?????.", "??? ????.", "??? ??? ???."], concentric: "?? ???? ?????.", hold: "? ???? ????.", eccentric: "??? ???? ?????." },
+    guide: [["??", "???? ? ?? ????.", 3], ["???", "??? ???? ????.", 2], ["??", "? ???? ????.", 1], ["??", "??? ?????.", 3]],
+  },
+  {
+    id: "db004",
+    group: "dumbbell",
+    ko: "??(?? ?? ??)",
+    en: "One Arm Dumbbell Row",
+    category: "??",
+    target: "?, ???",
+    difficulty: "??",
+    description: "? ??? ??? ?? ??? ?? ? ??? ?????. ?? ????? ???? ?? ??? ??? ?????.",
+    image: "https://images.unsplash.com/photo-1605296867424-35fc25c9212a?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ?? ?? ?? ??"),
+    caution: "??? ??? ??? ??? ???? ?????.",
+    defaultSets: 3,
+    defaultReps: 12,
+    startWeight: 4,
+    unit: 1,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: { setup: ["?? ?? ???.", "??? ????.", "??? ?? ???."], concentric: "???? ?? ????.", hold: "?? ??? ????.", eccentric: "?? ??? ????." },
+    guide: [["??", "??? ????? ?????.", 3], ["???", "???? ?? ????.", 2], ["??", "?? ?? ????.", 1], ["???", "??? ?? ????.", 3]],
+  },
+  {
+    id: "db005",
+    group: "dumbbell",
+    ko: "??(?? ?????)",
+    en: "Dumbbell Bench Press",
+    category: "??",
+    target: "??, ??",
+    difficulty: "??",
+    description: "??? ?? ??? ?? ?? ??? ?????. ??? ?? ??? ??? ??? ??? ?????.",
+    image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ????? ?? ??"),
+    caution: "?? ??? ??? ??? ??? ??? ????.",
+    defaultSets: 3,
+    defaultReps: 10,
+    startWeight: 4,
+    unit: 1,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: { setup: ["?? ??? ?????.", "??? ?? ????.", "??? ?? ????."], concentric: "??? ?? ?? ????.", hold: "??? ?? ?????.", eccentric: "??? ?? ??? ????." },
+    guide: [["??", "??? ????? ????.", 3], ["??", "??? ?? ???.", 2], ["??", "???? ???? ????.", 1], ["???", "??? ????.", 3]],
+  },
+  {
+    id: "db006",
+    group: "dumbbell",
+    ko: "??(?? ???)",
+    en: "Dumbbell Fly",
+    category: "??",
+    target: "??",
+    difficulty: "??",
+    description: "???? ?? ?? ? ??? ??? ?? ??? ??? ?????. ??? ??? ?? ??? ????.",
+    image: "https://images.unsplash.com/photo-1581009137042-c552e485697a?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ??? ?? ??"),
+    caution: "??? ???? ????? ??? ??? ????.",
+    defaultSets: 2,
+    defaultReps: 12,
+    startWeight: 2,
+    unit: 1,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: { setup: ["???? ?? ????.", "??? ????.", "??? ?? ???."], concentric: "??? ?? ?? ????.", hold: "??? ??? ????.", eccentric: "??? ???? ????." },
+    guide: [["??", "??? ??? ?????.", 3], ["???", "?? ?? ????.", 2], ["??", "??? ????.", 1], ["???", "??? ????.", 3]],
+  },
+  {
+    id: "db007",
+    group: "dumbbell",
+    ko: "??(?? ?)",
+    en: "Dumbbell Curl",
+    category: "??",
+    target: "??",
+    difficulty: "??",
+    description: "???? ? ?? ???? ??? ?? ???? ?????. ?? ?? ?? ??? ??? ?????.",
+    image: "https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ? ?? ??"),
+    caution: "??? ?? ?? ??? ??? ????.",
+    defaultSets: 2,
+    defaultReps: 12,
+    startWeight: 3,
+    unit: 1,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: { setup: ["???? ? ?? ?????.", "??? ????.", "??? ?? ???."], concentric: "??? ??? ?? ????.", hold: "??? ?? ???.", eccentric: "??? ??? ????." },
+    guide: [["??", "???? ?????.", 3], ["???", "??? ????.", 2], ["??", "??? ????.", 1], ["???", "??? ????.", 3]],
+  },
+  {
+    id: "db008",
+    group: "dumbbell",
+    ko: "??(????? ??)",
+    en: "Triceps Kickback",
+    category: "??",
+    target: "??",
+    difficulty: "??",
+    description: "??? ?? ?? ???? ???? ? ???? ?????. ???? ???? ?? ?? ?????.",
+    image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ????? ?? ?? ??"),
+    caution: "??? ??? ??? ?? ??? ??? ??? ???.",
+    defaultSets: 2,
+    defaultReps: 12,
+    startWeight: 2,
+    unit: 1,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: { setup: ["?? ?? ???.", "???? ? ?? ?????.", "??? ?? ???."], concentric: "???? ? ?? ?? ???.", hold: "??? ?? ?????.", eccentric: "??? ???? ????." },
+    guide: [["??", "??? ?????.", 3], ["??", "???? ???.", 2], ["??", "??? ????.", 1], ["??", "??? ????.", 3]],
+  },
+  {
+    id: "db009",
+    group: "dumbbell",
+    ko: "??(??? ???)",
+    en: "Goblet Squat",
+    category: "??",
+    target: "???, ???",
+    difficulty: "??",
+    description: "??? ?? ?? ?? ??? ??? ??? ??? ?? ?????. ??? ?? ??? ????.",
+    image: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ??? ??? ?? ??"),
+    caution: "??? ???? ??? ??? ??? ??? ???.",
+    defaultSets: 3,
+    defaultReps: 12,
+    startWeight: 4,
+    unit: 1,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: { setup: ["??? ?? ?? ???.", "?? ????? ????.", "??? ?? ???."], concentric: "??? ?? ?????.", hold: "???? ?? ????.", eccentric: "??? ????." },
+    guide: [["??", "??? ?? ?? ????.", 3], ["????", "??? ?? ?????.", 2], ["??", "?? ?? ????.", 1], ["??", "??? ?????.", 3]],
+  },
+  {
+    id: "db010",
+    group: "dumbbell",
+    ko: "??(?? ??)",
+    en: "Dumbbell Lunge",
+    category: "??",
+    target: "???, ???, ??",
+    difficulty: "??",
+    description: "??? ?? ? ?? ??? ?? ??? ??? ????. ??? ??? ???? ?? ??? ?????.",
+    image: "https://images.unsplash.com/photo-1434596922112-19c563067271?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ?? ?? ??"),
+    caution: "??? ???? ?? ?? ?? ?????.",
+    defaultSets: 2,
+    defaultReps: 10,
+    startWeight: 2,
+    unit: 1,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: { setup: ["??? ????.", "??? ? ?? ???.", "??? ?? ???."], concentric: "??? ?? ?????.", hold: "??? ????.", eccentric: "??? ?????." },
+    guide: [["??", "??? ????.", 3], ["????", "??? ?? ?????.", 2], ["??", "??? ????.", 1], ["????", "??? ?????.", 3]],
+  },
+  {
+    id: "db011",
+    group: "dumbbell",
+    ko: "??(?? ????)",
+    en: "Dumbbell Dead Bug",
+    category: "??",
+    target: "??, ?? ???",
+    difficulty: "??",
+    description: "??? ??? ?? ?? ??? ??? ??? ?? ???? ????. ??? ???? ?? ?? ?????.",
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ???? ?? ??"),
+    caution: "??? ?? ????? ??? ??? ??????.",
+    defaultSets: 2,
+    defaultReps: 10,
+    startWeight: 1,
+    unit: 0.5,
+    tempo: { setup: 3, concentric: 2, hold: 1, eccentric: 3 },
+    coaching: { setup: ["??? ??? ????.", "???? ????.", "??? ?????."], concentric: "?? ??? ?? ????.", hold: "??? ?? ? ????.", eccentric: "??? ?????." },
+    guide: [["??", "??? ??? ????.", 3], ["??", "?? ??? ????.", 2], ["??", "??? ????.", 1], ["??", "??? ?????.", 3]],
+  },
+  {
+    id: "db012",
+    group: "dumbbell",
+    ko: "??(?? ??)",
+    en: "Dumbbell Carry",
+    category: "??",
+    target: "??, ??, ??",
+    difficulty: "??",
+    description: "??? ?? ?? ?? ??? ?????. ??? ??? ??? ???? ??? ?? ?????.",
+    image: "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=80",
+    videoSearchUrl: youtubeSearchUrl("?? ?? ??? ?? ?? ??"),
+    caution: "??? ??? ??? ???? ??? ??? ????.",
+    defaultSets: 2,
+    defaultReps: 20,
+    startWeight: 4,
+    unit: 1,
+    tempo: { setup: 3, concentric: 2, hold: 0, eccentric: 2 },
+    coaching: { setup: ["??? ????.", "??? ? ?? ???.", "??? ?????."], concentric: "?? ????? ????.", hold: "??? ?? ?????.", eccentric: "??? ??? ??????." },
+    guide: [["??", "??? ? ?? ?? ???.", 3], ["??", "?? ????? ????.", 2], ["??", "??? ?? ?????.", 1], ["??", "??? ??????.", 2]],
+  }
 ];
 
 const routineTemplates = [
@@ -286,6 +774,7 @@ const defaultState = {
 
 let state = loadState();
 let selectedBodyMetric = "weight";
+let selectedEquipmentGroup = "machine";
 let routineRefreshOffset = 0;
 let workoutSession = {
   equipmentId: null,
@@ -308,6 +797,7 @@ let workoutTimer = {
   phaseStartedAt: 0,
   elapsedMs: 0,
   completed: false,
+  encouragement: "",
 };
 
 function cloneDefaultState() {
@@ -362,8 +852,41 @@ function currentMonthKey() {
 }
 
 function getEquipment(id) {
-  return equipment.find((item) => item.id === id) || equipment[0];
+  return equipment.find((item) => item && item.id === id) || equipment.find(Boolean);
 }
+
+[
+  ["db001", "덤벨(사이드 레터럴 레이즈)", "상체", "측면 어깨", "쉬움", "가벼운 덤벨을 양옆으로 들어 올려 어깨 측면을 단련합니다. 승모근 개입을 줄이고 팔꿈치가 손보다 살짝 높게 움직이도록 합니다.", "어깨 통증이 있으면 가동범위를 줄이고 반동을 쓰지 마세요.", ["손목을 곧게 세우세요.", "어깨를 낮추세요.", "복부에 힘을 주세요."], "팔꿈치를 옆으로 들어 올리세요.", "어깨 높이에서 잠깐 멈추세요.", "천천히 덤벨을 내리세요."],
+  ["db002", "덤벨(덤벨 프레스)", "상체", "어깨, 삼두", "보통", "앉거나 서서 덤벨을 머리 위로 밀어 어깨 전면과 측면을 강화합니다. 허리가 꺾이지 않도록 복부에 힘을 유지합니다.", "어깨가 귀 쪽으로 올라가면 무게를 낮추세요.", ["갈비뼈를 내리세요.", "손목을 곧게 세우세요.", "어깨를 낮추세요."], "덤벨을 위로 밀어 올리세요.", "위에서 흔들림을 잡으세요.", "팔꿈치를 천천히 내리세요."],
+  ["db003", "덤벨(외회전 운동)", "상체", "회전근개", "쉬움", "가벼운 덤벨로 어깨 외회전 근육을 깨워 어깨 안정성을 높입니다. 무게보다 통증 없는 범위와 느린 속도가 중요합니다.", "통증이 있거나 팔꿈치가 몸에서 떨어지면 중단하세요.", ["팔꿈치를 몸 옆에 고정하세요.", "어깨를 낮추세요.", "손목을 편하게 두세요."], "팔을 바깥으로 회전하세요.", "끝 지점에서 멈추세요.", "천천히 원위치로 돌아오세요."],
+  ["db004", "덤벨(원암 덤벨 로우)", "상체", "등, 광배근", "보통", "한 손으로 덤벨을 몸통 옆으로 당겨 등 근육을 강화합니다. 팔로 당기기보다 팔꿈치를 뒤로 보내는 느낌이 핵심입니다.", "허리가 둥글게 말리면 벤치나 지지대를 사용하세요.", ["등을 길게 펴세요.", "어깨를 낮추세요.", "복부에 힘을 주세요."], "팔꿈치를 뒤로 당기세요.", "등을 조이며 멈추세요.", "팔을 천천히 뻗으세요."],
+  ["db005", "덤벨(덤벨 벤치프레스)", "상체", "가슴, 삼두", "보통", "벤치에 누워 덤벨을 밀어 가슴 근육을 단련합니다. 덤벨은 가슴 옆으로 내리고 손목은 수직을 유지합니다.", "어깨 앞쪽이 아프면 팔꿈치 각도와 깊이를 줄이세요.", ["발을 바닥에 고정하세요.", "어깨를 뒤로 낮추세요.", "손목을 곧게 세우세요."], "덤벨을 위로 밀어 올리세요.", "가슴에 힘을 유지하세요.", "천천히 가슴 옆으로 내리세요."],
+  ["db006", "덤벨(덤벨 플라이)", "상체", "가슴", "보통", "팔꿈치를 살짝 굽힌 채 덤벨을 벌리고 모아 가슴을 늘리고 수축합니다. 무리한 깊이는 어깨 부담을 키웁니다.", "어깨가 불편하면 가동범위를 좁히고 무게를 낮추세요.", ["팔꿈치를 살짝 굽히세요.", "어깨를 낮추세요.", "가슴을 열어 주세요."], "덤벨을 가슴 위로 모으세요.", "가슴을 조이며 멈추세요.", "천천히 양옆으로 벌리세요."],
+  ["db007", "덤벨(덤벨 컬)", "상체", "이두", "쉬움", "팔꿈치를 몸 옆에 고정하고 덤벨을 들어 이두근을 강화합니다. 몸통 반동 없이 팔꿈치 위치를 유지합니다.", "허리를 젖혀 들어 올리면 무게를 낮추세요.", ["팔꿈치를 몸 옆에 고정하세요.", "어깨를 낮추세요.", "손목을 곧게 두세요."], "덤벨을 천천히 들어 올리세요.", "이두에 힘을 주세요.", "천천히 아래로 내리세요."],
+  ["db008", "덤벨(트라이셉스 킥백)", "상체", "삼두", "쉬움", "상완을 몸통 옆에 고정하고 팔꿈치를 펴 삼두근을 단련합니다. 팔꿈치가 흔들리지 않는 것이 핵심입니다.", "어깨가 앞으로 말리면 몸통 각도를 줄이고 가볍게 하세요.", ["등을 길게 펴세요.", "팔꿈치를 몸 옆에 고정하세요.", "복부에 힘을 주세요."], "팔꿈치를 펴 뒤로 밀어 주세요.", "삼두에 힘을 유지하세요.", "천천히 팔꿈치를 굽히세요."],
+  ["db009", "덤벨(고블릿 스쿼트)", "하체", "허벅지, 엉덩이", "쉬움", "덤벨을 가슴 앞에 들고 앉았다 일어나 하체와 코어를 함께 강화합니다. 무릎과 발끝 방향을 맞춥니다.", "무릎이 안쪽으로 모이면 깊이를 줄이고 천천히 하세요.", ["덤벨을 가슴 앞에 두세요.", "발을 어깨너비로 놓으세요.", "복부에 힘을 주세요."], "바닥을 밀며 일어나세요.", "상단에서 몸을 세우세요.", "천천히 앉으세요."],
+  ["db010", "덤벨(덤벨 런지)", "하체", "허벅지, 엉덩이, 균형", "보통", "덤벨을 들고 한 발씩 내딛어 하체 근력과 균형을 기릅니다. 상체는 세우고 앞무릎은 발끝 방향을 따라갑니다.", "균형이 불안하면 덤벨 없이 먼저 연습하세요.", ["상체를 세우세요.", "덤벨을 몸 옆에 두세요.", "복부에 힘을 주세요."], "앞발로 밀어 올라오세요.", "균형을 잡으세요.", "천천히 내려가세요."],
+  ["db011", "덤벨(덤벨 데드버그)", "코어", "복부, 코어 안정성", "쉬움", "누워서 덤벨을 들고 팔과 다리를 교차로 움직여 코어 안정성을 높입니다. 허리가 바닥에서 뜨지 않게 유지합니다.", "허리가 뜨면 가동범위를 줄이고 덤벨을 내려놓으세요.", ["허리를 바닥에 붙이세요.", "갈비뼈를 내리세요.", "천천히 호흡하세요."], "팔과 다리를 길게 뻗으세요.", "허리를 붙인 채 멈추세요.", "천천히 돌아오세요."],
+  ["db012", "덤벨(덤벨 캐리)", "전신", "전신, 악력, 코어", "쉬움", "덤벨을 들고 걷는 전신 안정성 운동입니다. 어깨를 낮추고 몸통이 한쪽으로 기울지 않게 유지합니다.", "허리나 손목에 부담이 느껴지면 거리와 무게를 줄이세요.", ["어깨를 낮추세요.", "덤벨을 몸 옆에 두세요.", "시선은 정면입니다."], "짧고 안정적으로 걸으세요.", "몸통을 곧게 유지하세요.", "천천히 멈추고 내려놓으세요."],
+].forEach(([id, ko, category, target, difficulty, description, caution, setup, concentric, hold, eccentric]) => {
+  const item = getEquipment(id);
+  Object.assign(item, {
+    ko,
+    category,
+    target,
+    difficulty,
+    description,
+    caution,
+    videoSearchUrl: youtubeSearchUrl(`${ko} 짧은 자세 설명`),
+    coaching: { setup, concentric, hold, eccentric },
+    guide: [
+      ["준비", setup.join(" "), 3],
+      ["힘주기", concentric, item.tempo.concentric],
+      ["유지", hold, item.tempo.hold],
+      ["힘빼기", eccentric, item.tempo.eccentric],
+    ],
+  });
+});
 
 function roundToUnit(value, unit) {
   if (value <= 0) return 0;
@@ -495,8 +1018,17 @@ function renderHome() {
 
 function renderEquipment() {
   const filter = document.querySelector("#equipmentFilter").value;
-  const items = equipment.filter((item) => filter === "all" || item.category === filter);
-  document.querySelector("#equipmentGrid").innerHTML = items
+  const items = equipment.filter(Boolean).filter((item) => {
+    const group = item.group || "machine";
+    return group === selectedEquipmentGroup && (filter === "all" || item.category === filter);
+  });
+  if (!items.some((item) => item.id === state.selectedEquipmentId) && items[0]) {
+    state.selectedEquipmentId = items[0].id;
+  }
+  document.querySelectorAll(".subtab-button").forEach((button) => {
+    button.classList.toggle("active", button.dataset.equipmentGroup === selectedEquipmentGroup);
+  });
+  document.querySelector("#equipmentGrid").innerHTML = items.length ? items
     .map((item) => `
       <button class="equipment-card ${state.selectedEquipmentId === item.id ? "active" : ""}" data-id="${item.id}" type="button">
         <img src="${item.image}" alt="${item.ko}" />
@@ -505,7 +1037,7 @@ function renderEquipment() {
           <p>${item.target}</p>
         </div>
       </button>
-    `).join("");
+    `).join("") : `<p class="muted">??? ??? ?? ??? ????.</p>`;
   renderWorkoutDetail();
   renderLogEquipmentOptions();
 }
@@ -515,6 +1047,30 @@ function renderWorkoutDetail() {
   const weight = recommendedWeightFor(item.id);
   document.querySelector("#workoutDetail").innerHTML = `
     <img class="hero-img" src="${item.image}" alt="${item.ko}" />
+    ${item.videoUrl ? `
+      <div class="video-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>운동 전 설명 동영상</h2>
+            <p class="template-label">${item.ko} 사용 전 자세와 동작을 확인하세요.</p>
+          </div>
+          <a class="video-link" href="${item.videoUrl}" target="_blank" rel="noopener">새 창으로 보기</a>
+        </div>
+        <video class="equipment-video" src="${item.videoUrl}" controls preload="metadata" playsinline></video>
+      </div>
+    ` : ""}
+    ${item.videoSearchUrl ? `
+      <div class="video-panel youtube-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>유튜브 핵심 영상</h2>
+            <p class="template-label">짧은 자세 설명 영상을 YouTube에서 바로 확인하세요.</p>
+          </div>
+          <a class="video-link" href="${item.videoSearchUrl}" target="_blank" rel="noopener">YouTube에서 보기</a>
+        </div>
+        <p class="muted">YouTube 영상은 저작권과 임베드 제한이 있어 검색 결과 링크로 제공합니다.</p>
+      </div>
+    ` : ""}
     <div class="tag-row">
       <span class="tag">${item.category}</span>
       <span class="tag">${item.target}</span>
@@ -542,7 +1098,7 @@ function renderWorkoutDetail() {
 }
 
 function renderLogEquipmentOptions() {
-  document.querySelector("#logEquipment").innerHTML = equipment
+  document.querySelector("#logEquipment").innerHTML = equipment.filter(Boolean)
     .map((item) => `<option value="${item.id}">${item.ko}</option>`)
     .join("");
   document.querySelector("#logEquipment").value = state.selectedEquipmentId;
@@ -590,7 +1146,7 @@ function renderStats() {
     </div>
   `).join("");
 
-  const byCategory = equipment.reduce((acc, item) => {
+  const byCategory = equipment.filter(Boolean).reduce((acc, item) => {
     acc[item.category] = state.logs.filter((log) => log.equipmentId === item.id).length + (acc[item.category] || 0);
     return acc;
   }, {});
@@ -795,7 +1351,7 @@ function buildSyncPayload() {
     user: profileToSheetRow(),
     bodyRecords: state.bodyRecords.map(bodyRecordToSheetRow),
     workoutLogs: state.logs.map(workoutLogToSheetRow),
-    equipment: equipment.map(equipmentToSheetRow),
+    equipment: equipment.filter(Boolean).map(equipmentToSheetRow),
     routineTemplates,
   };
 }
@@ -975,11 +1531,12 @@ function getCurrentTimerPhase() {
     };
   }
   if (workoutTimer.phase === "rest") {
+    const encouragement = workoutTimer.encouragement || "????. ? ??? ???? ?????.";
     return {
       phase: "rest",
-      label: "세트 휴식",
-      text: "호흡을 고르고 다음 세트를 준비하세요.",
-      speak: "세트 완료. 호흡을 고르고 다음 세트를 준비하세요.",
+      label: "?? ??",
+      text: `${encouragement} ??? ??? ?? ??? ?????.`,
+      speak: `${encouragement} ??? ??? ?? ??? ?????.`,
       duration: workoutTimer.phaseDuration,
     };
   }
@@ -992,10 +1549,20 @@ function getCurrentTimerPhase() {
   };
 }
 
+function getKoreanRepCount(repNumber) {
+  return koreanRepCounts[repNumber] || `${repNumber}`;
+}
+
+function pickSetEncouragement() {
+  return setEncouragements[Math.floor(Math.random() * setEncouragements.length)];
+}
+
 function buildRepSpeech(phase, repNumber) {
-  if (phase === "concentric") return "힘을 주세요.";
-  if (phase === "hold") return "유지하세요.";
-  if (phase === "eccentric") return `천천히 돌아오세요. ${repNumber}회.`;
+  const item = getCurrentTimerItem();
+  const config = getExecutionConfig(item);
+  if (phase === "concentric") return config.coaching.concentric;
+  if (phase === "hold") return config.coaching.hold;
+  if (phase === "eccentric") return `${config.coaching.eccentric} ${getKoreanRepCount(repNumber)}`;
   return "";
 }
 
@@ -1031,6 +1598,7 @@ function startWorkoutTimer() {
     phaseStartedAt: performance.now(),
     elapsedMs: 0,
     completed: false,
+    encouragement: "",
   };
   document.body.classList.add("workout-mode");
   document.querySelector("#workoutSetupPanel").hidden = true;
@@ -1060,7 +1628,6 @@ function tickWorkoutTimer() {
     advanceTimerPhase();
   } else {
     renderTimerPanel();
-    if (workoutTimer.remaining <= 3) speakCoach(String(workoutTimer.remaining));
   }
 }
 
@@ -1102,6 +1669,7 @@ function advanceTimerPhase() {
       return;
     }
     if (workoutTimer.setIndex + 1 < target.targetSets) {
+      workoutTimer.encouragement = pickSetEncouragement();
       workoutTimer.setIndex += 1;
       workoutTimer.repIndex = 0;
       setTimerPhase("rest", target.restSec);
@@ -1116,15 +1684,16 @@ function advanceTimerPhase() {
 }
 
 function completeWorkoutTimer() {
+  const finalEncouragement = pickSetEncouragement();
   stopWorkoutTimer(false);
   workoutTimer.completed = true;
   document.body.classList.add("workout-mode");
-  document.querySelector("#timerPhaseLabel").textContent = "완료";
-  document.querySelector("#timerCount").textContent = "✓";
-  document.querySelector("#timerGuideText").textContent = "운동이 끝났습니다. 실제 반복 수와 난이도를 기록하세요.";
+  document.querySelector("#timerPhaseLabel").textContent = "??";
+  document.querySelector("#timerCount").textContent = "?";
+  document.querySelector("#timerGuideText").textContent = `${finalEncouragement} ??? ?????. ?? ?? ?? ???? ?????.`;
   document.querySelector("#timerProgressFill").style.width = "100%";
-  document.querySelector("#pauseTimerButton").textContent = "다시 시작";
-  speakCoach("운동이 끝났습니다. 실제 반복 수와 난이도를 기록하세요.");
+  document.querySelector("#pauseTimerButton").textContent = "?? ??";
+  speakCoach(`${finalEncouragement} ??? ?????. ?? ?? ?? ???? ?????.`);
 }
 
 function toggleWorkoutTimerPause() {
@@ -1224,8 +1793,18 @@ document.addEventListener("click", (event) => {
     });
   }
 
+  const subtab = event.target.closest(".subtab-button");
+  if (subtab) {
+    selectedEquipmentGroup = subtab.dataset.equipmentGroup;
+    renderEquipment();
+  }
+
   if (event.target.id === "quickLogButton") fillQuickLog();
-  if (event.target.id === "startTimerButton") openWorkoutSetup(state.selectedEquipmentId);
+  if (event.target.id === "startTimerButton") {
+    openWorkoutSetup(state.selectedEquipmentId);
+    applyWorkoutSetupFromForm();
+    startWorkoutTimer();
+  }
   if (event.target.id === "pauseTimerButton") toggleWorkoutTimerPause();
   if (event.target.id === "skipPhaseButton") advanceTimerPhase();
   if (event.target.id === "finishWorkoutButton") finishWorkoutFromTimer();
