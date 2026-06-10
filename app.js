@@ -775,6 +775,7 @@ const defaultState = {
 let state = loadState();
 let selectedBodyMetric = "weight";
 let selectedEquipmentGroup = "machine";
+let equipmentListExpanded = true;
 let routineRefreshOffset = 0;
 let workoutSession = {
   equipmentId: null,
@@ -881,6 +882,39 @@ function getEquipment(id) {
     coaching: { setup, concentric, hold, eccentric },
     guide: [
       ["준비", setup.join(" "), 3],
+      ["힘주기", concentric, item.tempo.concentric],
+      ["유지", hold, item.tempo.hold],
+      ["힘빼기", eccentric, item.tempo.eccentric],
+    ],
+  });
+});
+
+[
+  ["eq007", "로우로우", "상체", "등 중앙, 후면 어깨", "보통", "손잡이를 몸쪽으로 당겨 등 중앙부와 후면 어깨를 강화합니다. 가슴을 세우고 팔보다 등으로 당기는 느낌을 유지합니다.", "허리를 둥글게 말지 말고 어깨가 귀 쪽으로 올라가지 않게 하세요.", ["가슴을 세우세요.", "어깨를 낮추세요.", "복부에 힘을 주세요."], "손잡이를 몸쪽으로 당기세요.", "등을 조이며 멈추세요.", "팔을 천천히 뻗어 돌아가세요."],
+  ["eq008", "로터리 풀다운", "상체", "광배근, 이두", "보통", "회전 궤도의 손잡이를 아래로 당겨 광배근을 자극합니다. 몸통을 과하게 젖히지 않고 쇄골 앞쪽으로 당깁니다.", "목 뒤로 당기지 말고 통증 없는 범위에서 천천히 수행하세요.", ["허벅지 패드를 고정하세요.", "가슴을 세우세요.", "어깨를 낮추세요."], "손잡이를 아래로 당기세요.", "등에 힘을 유지하세요.", "천천히 위로 돌아가세요."],
+  ["eq009", "하이로우", "상체", "상부 등, 광배근", "보통", "높은 위치의 손잡이를 몸쪽으로 당겨 상부 등과 광배근을 강화합니다. 팔꿈치를 아래뒤로 보내는 궤도를 유지합니다.", "어깨가 으쓱 올라가지 않게 낮춘 상태로 당기세요.", ["가슴을 세우세요.", "어깨를 낮추세요.", "손잡이를 안정적으로 잡으세요."], "팔꿈치를 아래뒤로 당기세요.", "등에 힘을 유지하세요.", "천천히 원위치로 돌아가세요."],
+  ["eq001", "힙 어덕션", "하체", "내전근, 둔근", "쉬움", "앉아서 다리를 모으거나 벌려 골반 안정성과 엉덩이 주변 근육을 강화합니다.", "허리를 과하게 젖히지 말고 통증 없는 범위에서 천천히 움직이세요.", ["등을 등받이에 붙이세요.", "손잡이를 잡고 어깨를 낮추세요.", "복부에 힘을 주세요."], "무릎을 안쪽 또는 바깥쪽으로 천천히 움직이세요.", "끝 지점에서 잠깐 멈추세요.", "천천히 원위치로 돌아오세요."],
+  ["eq010", "행잉레그레이즈", "코어", "복부, 고관절 굴곡근", "어려움", "몸을 지지한 상태에서 다리를 들어 복부를 강화합니다. 반동을 줄이고 골반을 말아 올리는 느낌으로 수행합니다.", "허리가 과하게 꺾이거나 반동이 크면 반복 수를 줄이세요.", ["어깨를 낮추고 몸을 안정시키세요.", "복부에 힘을 주세요.", "반동을 줄이세요."], "무릎 또는 다리를 들어 올리세요.", "복부에 힘을 유지하세요.", "천천히 다리를 내리세요."],
+  ["eq011", "암풀다운", "상체", "광배근, 전거근", "보통", "팔을 거의 편 상태로 바를 아래로 눌러 등과 몸통 측면을 자극합니다. 팔꿈치 각도를 크게 바꾸지 않는 것이 핵심입니다.", "허리를 꺾지 말고 어깨가 올라가지 않게 유지하세요.", ["가슴을 세우세요.", "팔을 길게 뻗으세요.", "복부에 힘을 주세요."], "바를 허벅지 쪽으로 누르세요.", "등 옆쪽에 힘을 유지하세요.", "천천히 위로 돌아가세요."],
+  ["eq012", "숄더 프레스", "상체", "어깨, 삼두", "보통", "앉아서 손잡이를 위로 밀어 어깨 근력을 강화합니다. 허리가 꺾이지 않도록 복부에 힘을 유지합니다.", "어깨 통증이 있으면 가동범위를 줄이고 가볍게 시작하세요.", ["허리를 등받이에 붙이세요.", "어깨를 낮추세요.", "손목을 곧게 세우세요."], "손잡이를 위로 밀어 주세요.", "상단에서 흔들림을 잡으세요.", "천천히 내려오세요."],
+  ["eq003", "체스트 프레스", "상체", "가슴, 삼두", "보통", "손잡이를 앞으로 밀어 가슴과 삼두를 강화합니다. 어깨를 뒤로 낮추고 손목을 곧게 유지합니다.", "어깨 앞쪽이 아프면 팔꿈치 각도와 깊이를 줄이세요.", ["손잡이를 가슴 중앙 높이에 맞추세요.", "어깨를 낮추세요.", "허리를 등받이에 붙이세요."], "앞으로 밀어 주세요.", "가슴에 힘을 유지하세요.", "천천히 돌아오세요."],
+  ["eq002", "시티드 레그 프레스", "하체", "대퇴사두근, 둔근", "보통", "앉아서 발판을 밀어 하체 근력을 키우는 대표 기구입니다. 발끝과 무릎 방향을 일치시킵니다.", "무릎을 완전히 잠그지 말고 통증 없는 범위에서 수행하세요.", ["허리를 등받이에 밀착하세요.", "발을 어깨너비로 놓으세요.", "무릎과 발끝 방향을 맞추세요."], "발판을 부드럽게 밀어 주세요.", "무릎을 잠그지 말고 통제하세요.", "천천히 돌아오세요."],
+  ["eq013", "레그컬", "하체", "햄스트링", "보통", "무릎을 굽혀 허벅지 뒤쪽 햄스트링을 강화합니다. 골반을 고정하고 다리 뒤쪽 수축을 느낍니다.", "골반이 들리지 않게 고정하고 무릎 통증이 있으면 중량을 줄이세요.", ["패드를 발목 뒤에 맞추세요.", "골반을 고정하세요.", "손잡이를 잡으세요."], "무릎을 굽혀 패드를 당기세요.", "햄스트링에 힘을 유지하세요.", "천천히 다리를 펴세요."],
+  ["eq004", "랫풀다운", "상체", "광배근, 이두", "보통", "위의 바를 아래로 당겨 등 근육을 활성화합니다. 가슴을 세우고 쇄골 앞쪽으로 당깁니다.", "목 뒤로 당기지 말고 어깨가 귀 쪽으로 올라가지 않게 하세요.", ["허벅지 패드를 고정하세요.", "가슴을 세우세요.", "어깨를 낮추세요."], "바를 쇄골 쪽으로 당기세요.", "등을 조이며 멈추세요.", "천천히 바를 올리세요."],
+].forEach(([id, ko, category, target, difficulty, description, caution, setup, concentric, hold, eccentric]) => {
+  const item = getEquipment(id);
+  Object.assign(item, {
+    ko,
+    category,
+    target,
+    difficulty,
+    description,
+    caution,
+    sourceNote: "운동 설명은 ACSM/ACE 등 일반적인 근력운동 안전 원칙에 맞춰 초보자 기준으로 정리했습니다.",
+    videoSearchUrl: youtubeSearchUrl(`${ko} 사용법 자세 설명`),
+    coaching: { setup, concentric, hold, eccentric },
+    guide: [
+      ["준비", setup.join(" "), item.tempo.setup],
       ["힘주기", concentric, item.tempo.concentric],
       ["유지", hold, item.tempo.hold],
       ["힘빼기", eccentric, item.tempo.eccentric],
@@ -1028,7 +1062,13 @@ function renderEquipment() {
   document.querySelectorAll(".subtab-button").forEach((button) => {
     button.classList.toggle("active", button.dataset.equipmentGroup === selectedEquipmentGroup);
   });
-  document.querySelector("#equipmentGrid").innerHTML = items.length ? items
+  const visibleItems = equipmentListExpanded ? items : items.filter((item) => item.id === state.selectedEquipmentId);
+  const toggleButton = document.querySelector("#equipmentListToggle");
+  if (toggleButton) {
+    toggleButton.textContent = equipmentListExpanded ? "선택한 운동만 보기" : "전체 목록 펼치기";
+    toggleButton.hidden = items.length <= 1;
+  }
+  document.querySelector("#equipmentGrid").innerHTML = visibleItems.length ? visibleItems
     .map((item) => `
       <button class="equipment-card ${state.selectedEquipmentId === item.id ? "active" : ""}" data-id="${item.id}" type="button">
         <img src="${item.image}" alt="${item.ko}" />
@@ -1037,7 +1077,7 @@ function renderEquipment() {
           <p>${item.target}</p>
         </div>
       </button>
-    `).join("") : `<p class="muted">??? ??? ?? ??? ????.</p>`;
+    `).join("") : `<p class="muted">선택한 조건에 맞는 운동이 없습니다.</p>`;
   renderWorkoutDetail();
   renderLogEquipmentOptions();
 }
@@ -1079,6 +1119,7 @@ function renderWorkoutDetail() {
     <h2>${item.ko}</h2>
     <p>${item.description}</p>
     <p class="danger">${item.caution}</p>
+    ${item.sourceNote ? `<p class="muted">${item.sourceNote}</p>` : ""}
     <div class="summary-grid">
       <article class="metric-card"><span>추천 중량</span><strong>${weight}kg</strong></article>
       <article class="metric-card"><span>목표 세트</span><strong>${item.defaultSets}</strong></article>
@@ -1531,12 +1572,12 @@ function getCurrentTimerPhase() {
     };
   }
   if (workoutTimer.phase === "rest") {
-    const encouragement = workoutTimer.encouragement || "????. ? ??? ???? ?????.";
+    const encouragement = workoutTimer.encouragement || "좋습니다. 한 세트를 정확하게 끝냈습니다.";
     return {
       phase: "rest",
-      label: "?? ??",
-      text: `${encouragement} ??? ??? ?? ??? ?????.`,
-      speak: `${encouragement} ??? ??? ?? ??? ?????.`,
+      label: "세트 휴식",
+      text: `${encouragement} 호흡을 고르고 다음 세트를 준비하세요.`,
+      speak: `${encouragement} 호흡을 고르고 다음 세트를 준비하세요.`,
       duration: workoutTimer.phaseDuration,
     };
   }
@@ -1688,12 +1729,12 @@ function completeWorkoutTimer() {
   stopWorkoutTimer(false);
   workoutTimer.completed = true;
   document.body.classList.add("workout-mode");
-  document.querySelector("#timerPhaseLabel").textContent = "??";
-  document.querySelector("#timerCount").textContent = "?";
-  document.querySelector("#timerGuideText").textContent = `${finalEncouragement} ??? ?????. ?? ?? ?? ???? ?????.`;
+  document.querySelector("#timerPhaseLabel").textContent = "완료";
+  document.querySelector("#timerCount").textContent = "✓";
+  document.querySelector("#timerGuideText").textContent = `${finalEncouragement} 운동이 끝났습니다. 실제 반복 수와 난이도를 기록하세요.`;
   document.querySelector("#timerProgressFill").style.width = "100%";
-  document.querySelector("#pauseTimerButton").textContent = "?? ??";
-  speakCoach(`${finalEncouragement} ??? ?????. ?? ?? ?? ???? ?????.`);
+  document.querySelector("#pauseTimerButton").textContent = "다시 시작";
+  speakCoach(`${finalEncouragement} 운동이 끝났습니다. 실제 반복 수와 난이도를 기록하세요.`);
 }
 
 function toggleWorkoutTimerPause() {
@@ -1778,6 +1819,7 @@ document.addEventListener("click", (event) => {
   const equipmentCard = event.target.closest(".equipment-card");
   if (equipmentCard) {
     state.selectedEquipmentId = equipmentCard.dataset.id;
+    equipmentListExpanded = false;
     saveState();
     renderEquipment();
   }
@@ -1796,6 +1838,12 @@ document.addEventListener("click", (event) => {
   const subtab = event.target.closest(".subtab-button");
   if (subtab) {
     selectedEquipmentGroup = subtab.dataset.equipmentGroup;
+    equipmentListExpanded = true;
+    renderEquipment();
+  }
+
+  if (event.target.id === "equipmentListToggle") {
+    equipmentListExpanded = !equipmentListExpanded;
     renderEquipment();
   }
 

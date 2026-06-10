@@ -170,6 +170,12 @@ h2 {
   box-shadow: 0 8px 18px rgba(24, 33, 30, 0.08);
 }
 
+.list-toggle-row {
+  display: flex;
+  justify-content: flex-end;
+  margin: -4px 0 12px;
+}
+
 .youtube-panel {
   background: linear-gradient(135deg, rgba(255, 245, 245, 0.96), rgba(255, 255, 255, 0.92));
 }
@@ -817,6 +823,7 @@ th {
 
   .chart-controls {
     width: 100%;
+    flex-direction: column;
     justify-content: stretch;
   }
 

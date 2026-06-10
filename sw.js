@@ -1,4 +1,4 @@
-const CACHE_NAME = "bareun-gym-coach-v5-dumbbell3";
+const CACHE_NAME = "bareun-gym-coach-v7-stats-responsive";
 const ASSETS = [
   "./",
   "./index.html",

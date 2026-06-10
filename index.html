@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#176b57" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./icon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles.css?v=20260607-dumbbell3" />
+    <link rel="stylesheet" href="./styles.css?v=20260610-stats-responsive" />
   </head>
   <body>
     <main class="app">
@@ -78,6 +78,9 @@
           <div class="subtab-row" aria-label="운동 종류">
             <button class="subtab-button active" data-equipment-group="machine" type="button">운동기구</button>
             <button class="subtab-button" data-equipment-group="dumbbell" type="button">덤벨</button>
+          </div>
+          <div class="list-toggle-row">
+            <button class="text-button" id="equipmentListToggle" type="button">목록 접기</button>
           </div>
           <div class="equipment-grid" id="equipmentGrid"></div>
         </div>
@@ -314,7 +317,7 @@
         });
       });
     </script>
-    <script src="./app.js?v=20260607-dumbbell3"></script>
+    <script src="./app.js?v=20260610-stats-responsive"></script>
     <script>
       if ("serviceWorker" in navigator && location.protocol !== "file:") {
         navigator.serviceWorker.register("./sw.js").catch(() => {});
